@@ -1,0 +1,154 @@
+{
+  "ID": "do_VitamioVideoView",
+  "IsContainer": "0",
+  "Type": "UI",
+  "Name": "播放视频控件",
+  "Version": "Internal",
+  "Description": "集成Vitamio多媒体开发框架，全面支持硬件解码与 GPU 渲染。支持MKV，FLV，MP4，MOV，TS，RMVB等常见格式的视频，还可以在 Android 与 iOS 上跨平台支持 MMS, RTSP, RTMP, HLS(m3u8) 等常见的多种视频流媒体协议，包括点播与直播。具体参见文档：https://www.vitamio.org/docs/",
+  "Icon": "",
+  "IOS": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Android": {
+    "Support": 1,
+    "MinVersion": "4.0"
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "path",
+      "Name": "播放文件源路径",
+      "Type": "String",
+      "Type_JavaScript": "String",
+      "DefaultValue": "",
+      "EditType": "1",
+      "Group": "",
+      "Description": "只支持data://目录和网络地址",
+      "Design": {
+        "Type": "FileSource",
+        "Data": []
+      }
+    }
+  ],
+  "Events": [
+    {
+      "ID": "error",
+      "Description": "视频播放异常时触发",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": ""
+    },
+    {
+      "ID": "finished",
+      "Description": "视频播放完后触发",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": ""
+    },
+    {
+      "ID": "info",
+      "Description": "视频播放信息因素变化时触发",
+      "ReturnType": "Node",
+      "ReturnType_JavaScript": "Node",
+      "ReturnDesc": "返回{type:事件类型，value:对应的值}，type 支持 0,1,2,3，0:表示开始缓冲，1：缓冲进度变化 value就是对应缓冲值(百分比)，2：缓冲结束，3：缓冲时持续触发，value为视频下载网速，就是对应下载速度(kb)"
+    }
+  ],
+  "syncMethodes": [
+    {
+      "ID": "expand",
+      "Name": "全屏播放",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "isFullScreen",
+          "Name": "是否全屏播放",
+          "Type": "Bool",
+          "Type_JavaScript": "Bool",
+          "Required": 0,
+          "DefaultValue": "false",
+          "Description": "为false是表示退出全屏，小窗口播放，若已为小窗口播放则没有变化；为true是表示转为全屏播放，若已为全屏播放则没有变化"
+        }
+      ]
+    },
+    {
+      "ID": "getCurrentPosition",
+      "Name": "视频当前播放的时间",
+      "Description": "",
+      "ReturnType": "String",
+      "ReturnType_JavaScript": "String",
+      "ReturnDesc": "返回当前播放的时间，单位为毫秒",
+      "Paras": []
+    },
+    {
+      "ID": "isPlaying",
+      "Name": "当前视频是否正在播放",
+      "Description": "判断当前视频为播放状态还是暂停状态",
+      "ReturnType": "Bool",
+      "ReturnType_JavaScript": "Bool",
+      "ReturnDesc": "true为正在播放，false 为暂停播放、停止或未开始状态",
+      "Paras": []
+    },
+    {
+      "ID": "pause",
+      "Name": "暂停播放",
+      "Description": "",
+      "ReturnType": "Number",
+      "ReturnType_JavaScript": "Number",
+      "ReturnDesc": "返回当前视频暂停时的位置，毫秒值",
+      "Paras": []
+    },
+    {
+      "ID": "play",
+      "Name": "开始播放",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": [
+        {
+          "ID": "point",
+          "Name": "播放起点",
+          "Type": "Number",
+          "Type_JavaScript": "Number",
+          "Required": 0,
+          "DefaultValue": "",
+          "Description": "从视频中的某一点开始播放，毫秒值"
+        }
+      ]
+    },
+    {
+      "ID": "resume",
+      "Name": "继续播放",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": []
+    },
+    {
+      "ID": "stop",
+      "Name": "停止播放",
+      "Description": "",
+      "ReturnType": "",
+      "ReturnType_JavaScript": "",
+      "ReturnDesc": "",
+      "Paras": []
+    }
+  ],
+  "asyncMethodes": []
+}
